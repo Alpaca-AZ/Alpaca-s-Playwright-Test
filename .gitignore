@@ -1,5 +1,8 @@
-.DS_Store
-/test-results
-playwright-report/index.html
-/node_modules
-/playright-report
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
