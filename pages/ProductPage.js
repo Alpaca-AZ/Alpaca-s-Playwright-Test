@@ -34,7 +34,14 @@ export class ProductPage {
       
         await this.page.locator(`#add-to-cart-${buttonId}`).click();
     }
-
+    async removeProductFromCart(productName) {
+      const buttonId = productName
+        .toLowerCase()
+        .replace(/\s/g, '-')
+        .replace(/[^a-z0-9-]/g, '');
+      
+        await this.page.locator(`#remove-${buttonId}`).click();
+    }
     async getCartItemCount() {
         try {
             const badgeText = await this.cartBadge.textContent();
