@@ -10,11 +10,11 @@ test("should add product to cart successfully", async ({ page }) => {
   await loginPage.goto();
   await loginPage.login("error_user", "secret_sauce");
 
-  // Tambahkan produk "Sauce Labs Backpack" ke keranjang
+  // Tambahkan produk dan hapus "Sauce Labs Backpack" ke keranjang
   await productPage.addProductToCart("Sauce Labs Backpack");
   await productPage.removeProductFromCart("Sauce Labs Backpack");
 
-  // Verifikasi bahwa produk berhasil ditambahkan ke keranjang
+  // Verifikasi bahwa produk berhasil dihapus dari keranjang namun tetap muncul di cart
   const cartItemCount = await productPage.getCartItemCount();
   expect(cartItemCount).toBe(1);
 });

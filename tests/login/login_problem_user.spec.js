@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../pages/LoginPage.js';
+import { PROBLEM_USER } from '../../utils/testData.js';
 
 test('should login successfully', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();
-  await loginPage.login('problem_user', 'secret_sauce');
+  await loginPage.login(PROBLEM_USER.username, PROBLEM_USER.password);
 
   // Verify successful login
   const isSuccess = await loginPage.isLoginSuccessful();
